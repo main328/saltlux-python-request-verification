@@ -85,6 +85,8 @@ class Application(tkinter.Tk):
 
     # 검증 수행 시, 진행 상황을 전달 받아 GUI의 진행률 바와 텍스트를 갱신하는 함수.
     def update_progress(self, current_step: int, total_steps: int) -> None:
+        if self.progress_bar['maximum'] != total_steps:
+            self.progress_bar['maximum'] = total_steps
         self.progress_bar['value'] = current_step
         self.status_label_var.set(f'처리 중... ({current_step}/{total_steps})')
         self.update_idletasks()
