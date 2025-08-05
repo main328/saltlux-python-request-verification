@@ -13,7 +13,7 @@ class Config:
     ASSETS_PATH: Path = RESOURCE_PATH / 'assets'
 
     # 애플리케이션 기본 정보.
-    APP_TITLE: str = 'URL 검증 및 정규화 도구'
+    APP_TITLE: str = '요청 주소 검증 및 정규화 도구'
     APP_VERSION: str = f'v{__version__}'
     APP_ICON_NAME: str = os.getenv('APP_ICON_NAME', 'icon_v0.1.ico')
 
