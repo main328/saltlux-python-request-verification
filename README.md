@@ -36,25 +36,31 @@ cp .env_sample .env
 - `MAX_THREADS`: 동시 처리 스레드 개수.
 - `APP_ICON_NAME`: 실행 파일의 아이콘 이름.
 
-5. 프로그램 실행:
+## 사용 방법
+### 프로그램 실행:
 ```bash
 python main.py
 ```
 - 실행에 필요한 기본적인 폴더 구조를 확인하여 자동 초기화.
 - 사용자가 설정 파일을 생성하지 않아도 자동으로 설정 파일 생성.
 
-6. 실행 파일 기본 생성:
+### 실행 파일 기본 생성:
 ```bash
 pyinstaller --onefile --windowed main.py
 ```
 - `--onefile`: 실행에 필요한 모든 파일을 하나의 실행 파일로 압축.
 - `--windowed`: 프로그램 실행 시 콘솔창을 제외하고 GUI 애플리케이션 출력.
 
-7. 실행 파일 고급 생성:
+### 실행 파일 고급 생성:
 ```bash
-pyinstaller --onefile --windowed main.py --name "요청 주소 검증 도구" --icon="resources/assets/icon_v0.1.ico" --add-data "resources;resources"
+pyinstaller main.py `
+    --onefile `
+    --windowed `
+    --name "요청 주소 검증 도구" `
+    --icon="resources/assets/icon_v0.1.ico" `
+    --add-data "resources;resources"
 ```
-### 명령어 옵션
+#### 명령어 옵션
 - `--name`: 실행 파일의 이름을 지정.
 - `--icon`: 실행 파일의 아이콘을 지정.
 - `--add-data`: 외부 데이터를 실행 파일에 포함.
