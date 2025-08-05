@@ -80,7 +80,7 @@ class Application(tkinter.Tk):
             messagebox.showerror('ERROR', '요청 주소가 기입된 열 이름을 지정해주시기 바랍니다.')
             return
         
-        thread = threading.Thread(target=self.process_urls_thread, args=(xlsx_path, column_name))
+        thread = threading.Thread(target=self.process_requests_thread, args=(xlsx_path, column_name))
         thread.start()
 
     # 검증 수행 시, 진행 상황을 전달 받아 GUI의 진행률 바와 텍스트를 갱신하는 함수.
@@ -92,7 +92,7 @@ class Application(tkinter.Tk):
         self.update_idletasks()
 
     # 검증 수행 시, Handler를 통해 처리된 데이터를 전달, 가공, 저장하는 함수.
-    def process_urls_thread(self, xlsx_path: Path, column_name: str) -> None:
+    def process_requests_thread(self, xlsx_path: Path, column_name: str) -> None:
         self.start_button.config(state='disabled')
         self.status_label_var.set('파일을 읽는 중...')
         self.progress_bar['value'] = 0
@@ -113,7 +113,7 @@ class Application(tkinter.Tk):
                 title='요청 주소에 대한 검증 결과',
                 initialfile=save_name,
                 defaultextension='.xlsx',
-                filetypes=(('Excel files', '*.xlsx'))
+                filetypes=(('Excel files', '*.xlsx'),)
             )
 
             if save_path:
